@@ -7,6 +7,6 @@ import java.util.List;
  * Stanford Center for Biomedical Informatics Research
  * 2023-04-14
  */
-public record FormSection(String sectionHeader, List<FormField> formFields) {
+public record FormSection(String sectionHeader, List<FormField> fields) {
 
 }

@@ -1,0 +1,10 @@
+"Variable / Field Name","Form Name","Section Header","Field Type","Field Label","Choices, Calculations, OR Slider Labels","Field Note","Text Validation Type OR Show Slider Number","Text Validation Min","Text Validation Max",Identifier?,"Branching Logic (Show field only if...)","Required Field?","Custom Alignment","Question Number (surveys only)","Matrix Group Name","Matrix Ranking?","Field Annotation"
+record_id,demographics,,text,"Record ID",,,,,,,,,,,,,
+sid,demographics,,text,"Study ID",,,,,,,,y,,,,,
+initials,demographics,,text,Initials,,,alpha_only,,,,,,,,,,
+age,demographics,,text,"Age at enrollment",,,integer,0,,,,,,,,,
+gender,demographics,,radio,Gender,"1, Male | 2, Female",,,,,,,,,,,,
+race,demographics,,radio,Race,"1, White | 2, African-American | 3, American Indian or native Alaskan | 4, Asian | 5, Native Hawaiian or other Pacific islander | 6, Other",,,,,,,,,,,,
+ethnicity,demographics,,radio,Ethnicity,"1, Hispanic or Latino/a | 2, Not Hispanic or Latino/a",,,,,,,,,,,,
+city,demographics,,text,City,,,,,,,,,,,,,
+zip,demographics,,text,"ZIP code",,,zipcode,,,,,,,,,,

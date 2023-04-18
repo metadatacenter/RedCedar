@@ -18,7 +18,8 @@ public class RedcapCsvConsumer {
         var sectionNames2Fields = ArrayListMultimap.<String, FormField>create();
         csv.fields().forEach(f -> {
             var fieldUi = processField(f);
-            var formField = new FormField(f.fieldLabel(),
+            var formField = new FormField(f.variableFieldName(),
+                                          f.fieldLabel(),
                                           f.fieldNote(),
                                           getOptionality(f),
                                           getPrivacy(f),
@@ -31,7 +32,7 @@ public class RedcapCsvConsumer {
         return formNames2SectionNames.keySet().stream().map(formName -> {
             var formSectionNames = formNames2SectionNames.get(formName);
             var sections = formSectionNames.stream().map(formSectionName -> {
-                var formFields = sectionNames2Fields.get(formName);
+                var formFields = sectionNames2Fields.get(formSectionName);
                 return new FormSection(formSectionName, formFields);
             }).toList();
             return new Form(formName, sections);
