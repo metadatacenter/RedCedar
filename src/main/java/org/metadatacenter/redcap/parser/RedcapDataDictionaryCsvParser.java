@@ -1,15 +1,13 @@
 package org.metadatacenter.redcap.parser;
 
 import com.fasterxml.jackson.databind.MappingIterator;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import org.metadatacenter.redcap.api.RedcapDataDictionaryCsv;
-import org.metadatacenter.redcap.api.RedcapFieldRecord;
+import org.metadatacenter.redcap.csv.RedcapDataDictionaryCsv;
+import org.metadatacenter.redcap.csv.RedcapDataDictionaryCsvRecord;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
 
 /**
  * Matthew Horridge
@@ -26,8 +24,8 @@ public class RedcapDataDictionaryCsvParser {
         var headerSchema = CsvSchema.emptySchema().withHeader();
         var mapper = CsvMapper.builder()
                                     .build();
-        MappingIterator<RedcapFieldRecord> it = mapper
-                .readerFor(RedcapFieldRecord.class)
+        MappingIterator<RedcapDataDictionaryCsvRecord> it = mapper
+                .readerFor(RedcapDataDictionaryCsvRecord.class)
                 .with(headerSchema)
                 .readValues(in);
         var records = it.readAll();

@@ -3,6 +3,8 @@ package org.metadatacenter.redcap.parser;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.LinkedHashMultimap;
 import org.metadatacenter.redcap.api.*;
+import org.metadatacenter.redcap.csv.RedcapDataDictionaryCsv;
+import org.metadatacenter.redcap.csv.RedcapDataDictionaryCsvRecord;
 
 import java.util.List;
 
@@ -39,16 +41,16 @@ public class RedcapCsvConsumer {
         }).toList();
     }
 
-    private Privacy getPrivacy(RedcapFieldRecord f) {
+    private Privacy getPrivacy(RedcapDataDictionaryCsvRecord f) {
         return f.identifier()
                 .equals("y") ? Privacy.CONTAINS_PHI : Privacy.DOES_NOT_CONTAIN_PHI;
     }
 
-    private Optionality getOptionality(RedcapFieldRecord f) {
+    private Optionality getOptionality(RedcapDataDictionaryCsvRecord f) {
         return f.requiredField().equals("y") ? Optionality.REQUIRED : Optionality.OPTIONAL;
     }
 
-    private FormFieldUi processField(RedcapFieldRecord f) {
+    private FormFieldUi processField(RedcapDataDictionaryCsvRecord f) {
         return switch (f.fieldType()) {
             case Text -> processTextField(f);
             case Dropdown -> processChoicesField(f, ChoiceFieldType.DROPDOWN);
@@ -65,15 +67,15 @@ public class RedcapCsvConsumer {
         };
     }
 
-    private FormFieldUi processSectionField(RedcapFieldRecord f) {
+    private FormFieldUi processSectionField(RedcapDataDictionaryCsvRecord f) {
         return new SectionFieldUi();
     }
 
-    private FormFieldUi processNotesField(RedcapFieldRecord f) {
+    private FormFieldUi processNotesField(RedcapDataDictionaryCsvRecord f) {
         return new NotesFieldUi();
     }
 
-    private FormFieldUi processFileField(RedcapFieldRecord fieldRecord) {
+    private FormFieldUi processFileField(RedcapDataDictionaryCsvRecord fieldRecord) {
         if (fieldRecord.textValidationTypeOrShowSliderNumber().trim().equals("signature")) {
             return new SignatureFieldUi();
         }
@@ -82,33 +84,33 @@ public class RedcapCsvConsumer {
         }
     }
 
-    private FormFieldUi processDescriptiveField(RedcapFieldRecord f) {
+    private FormFieldUi processDescriptiveField(RedcapDataDictionaryCsvRecord f) {
         return new DescriptiveFieldUi();
     }
 
-    private FormFieldUi processCalcFieldUi(RedcapFieldRecord f) {
+    private FormFieldUi processCalcFieldUi(RedcapDataDictionaryCsvRecord f) {
         return new CalcFieldUi();
     }
 
-    private FormFieldUi processSliderField(RedcapFieldRecord f) {
+    private FormFieldUi processSliderField(RedcapDataDictionaryCsvRecord f) {
         return new SliderFieldUi();
     }
 
-    private FormFieldUi processTrueFalseField(RedcapFieldRecord f) {
+    private FormFieldUi processTrueFalseField(RedcapDataDictionaryCsvRecord f) {
         return new FixedChoiceFieldUi(FixedChoiceType.TRUEFALSE);
     }
 
-    private FormFieldUi processYesNoField(RedcapFieldRecord f) {
+    private FormFieldUi processYesNoField(RedcapDataDictionaryCsvRecord f) {
         return new FixedChoiceFieldUi(FixedChoiceType.YESNO);
     }
 
-    private FormFieldUi processChoicesField(RedcapFieldRecord f, ChoiceFieldType choiceFieldType) {
+    private FormFieldUi processChoicesField(RedcapDataDictionaryCsvRecord f, ChoiceFieldType choiceFieldType) {
         var choices = getChoices(f);
         return new UserDefinedChoiceFieldUi(choices, choiceFieldType);
     }
 
 
-    private Choices getChoices(RedcapFieldRecord f) {
+    private Choices getChoices(RedcapDataDictionaryCsvRecord f) {
         var choicesSpec = f.choicesOrCalculationsOrSliderLabels();
         if (choicesSpec.isBlank()) {
             return Choices.empty();
@@ -117,7 +119,7 @@ public class RedcapCsvConsumer {
         return choicesParser.parseChoices(choicesSpec);
     }
 
-    private TextFieldUi processTextField(RedcapFieldRecord f) {
+    private TextFieldUi processTextField(RedcapDataDictionaryCsvRecord f) {
         var textValidationType = f.textValidationTypeOrShowSliderNumber().trim();
         var textValidationMin = f.textValidationMin().trim();
         var textValidationMax = f.textValidationMax().trim();

@@ -2,6 +2,7 @@ package org.metadatacenter.redcap.api;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.metadatacenter.redcap.csv.RedcapDataDictionaryCsvRecord;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,13 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Stanford Center for Biomedical Informatics Research
  * 2023-04-12
  */
-public class RedcapFieldRecord_TestCase {
+public class RedcapDataDictionaryCsvRecord_TestCase {
 
-    private RedcapFieldRecord record;
+    private RedcapDataDictionaryCsvRecord record;
 
     @BeforeEach
     public void setUp() {
-        record = new RedcapFieldRecord(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        record = new RedcapDataDictionaryCsvRecord(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     @Test

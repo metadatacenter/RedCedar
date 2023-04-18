@@ -1,4 +1,4 @@
-package org.metadatacenter.redcap.api;
+package org.metadatacenter.redcap.csv;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import java.util.List;
  *
  * A REDCap data dictionary is simply a list of REDCap fields.
  */
-public record RedcapDataDictionaryCsv(List<RedcapFieldRecord> fields) {
+public record RedcapDataDictionaryCsv(List<RedcapDataDictionaryCsvRecord> fields) {
 
 }
