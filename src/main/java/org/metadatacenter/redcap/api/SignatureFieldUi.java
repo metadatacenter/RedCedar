@@ -1,4 +1,4 @@
-package org.metadatacenter.redcap.parser;
+package org.metadatacenter.redcap.api;
 
 import org.metadatacenter.redcap.api.Cardinality;
 import org.metadatacenter.redcap.api.FormFieldUi;
@@ -9,11 +9,11 @@ import org.metadatacenter.redcap.api.RedcapFieldType;
  * Stanford Center for Biomedical Informatics Research
  * 2023-04-15
  */
-public class DescriptiveFieldUi implements FormFieldUi {
+public class SignatureFieldUi implements FormFieldUi {
 
     @Override
     public RedcapFieldType fieldType() {
-        return RedcapFieldType.Descriptive;
+        return RedcapFieldType.File;
     }
 
     @Override
