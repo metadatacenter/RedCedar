@@ -1,10 +1,11 @@
-package org.metadatacenter.redcap.parser;
+package org.metadatacenter.redcap.csv;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.LinkedHashMultimap;
 import org.metadatacenter.redcap.api.*;
 import org.metadatacenter.redcap.csv.RedcapDataDictionaryCsv;
 import org.metadatacenter.redcap.csv.RedcapDataDictionaryCsvRecord;
+import org.metadatacenter.redcap.parser.ChoicesParser;
 
 import java.util.List;
 
