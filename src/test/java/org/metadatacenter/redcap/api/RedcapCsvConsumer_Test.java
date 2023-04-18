@@ -74,7 +74,7 @@ public class RedcapCsvConsumer_Test {
                              "age",
                              "Age at enrollment",
                              Optionality.OPTIONAL,
-                             TextValidationPattern.Integer);
+                             TextValidationPattern.integer);
     }
 
     private void shouldParseField2(List<FormField> fields) {
@@ -82,7 +82,7 @@ public class RedcapCsvConsumer_Test {
                              "initials",
                              "Initials",
                              Optionality.OPTIONAL,
-                             TextValidationPattern.Letters_only);
+                             TextValidationPattern.alpha_only);
     }
 
     private void shouldParseField1(List<FormField> fields) {

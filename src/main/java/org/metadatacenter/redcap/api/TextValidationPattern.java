@@ -13,47 +13,47 @@ import java.util.Optional;
  */
 public enum TextValidationPattern {
 
-    Alpha_Num_ID("alpha_id"), //(), // (ABC123)
-    AlphaNum_with_Optional_Dash("alpha-dash"), // (AB1-2)
-    AMEL_Record_ID("amel_id"),
-    Custom_ID("custom_id"), // (STAN-P001)
-    Dash_Id("dash-id"), // (12-456) numbers only
-    Date_DMY("date_dmy"), // (D-M-Y)
-    Date_MDY("date_mdy"), // (M-D-Y)
-    Date_MY("date_my"), // (M-Y)
-    Date_YMD("date_ymd"), // (Y-M-D)
-    Date_YM("date_ym"), // (Y-M)
-    Datetime_DMY_HM("datetime_dmy"), // (D-M-Y H:M)
-    Datetime_MDY_HM("datetime_mdy"), // (M-D-Y H:M)
-    Datetime_YMD_HM("datetime_ymd"), // (Y-M-D H:M)
-    Datetime_Seconds_DMY("datetime_seconds_dmy"), // (D-M-Y H:M:S)
-    Datetime_Seconds_MDY("datetime_seconds_mdy"), // (M-D-Y H:M:S)
-    Datetime_Seconds_YMD("datetime_seconds_ymd"), // (Y-M-D H:M:S)
-    DirectNet_ID("directnet_id"),
-    Email("email"),
-    Integer("integer"),
-    IP_Address("ip_address"), // (xxx.xxX.xxX.xxx)
-    Lab_Value("lab_value"),
-    Letters_only("alpha_only"),
-    MAC_Address("mac_address"), // (xx:xx:XX:XX:XX:XX)
-    MAC_Addresses("mac_address_list"), // (csV)
-    MAPX_ID("mapx_id"), // (MIMCXX-X)
-    MRN("mrn_78d"), // (7-8 digits)
-    MTAX_Study_ID("mtax_id"), // (SS_Tyy_zzz)
-    Number("number"),
-    Number_1DP("number_1dp"), // (1 decimal place)
-    Number_2DP("number_2dp"), // (2 decimal places)
-    Number_3DP("number_3dp"), // (3 decimal places)
-    Number_4DP("number_4dp"), // (4 decimal places)
-    Phone("phone"), // (North America)
-    REDCap_API_Token("api_token"), // (32char)
-    SUNet_ID("sunet_id"),
-    Time_HH_MM_SS("time_hh_mm_ss"), // (HH:MM:SS)
-    Time_HH_MM("time"), // (HH:MM)
-    Time_HHMM("time_shorthand"), // (HHMM)
-    TPC_Record_ID("tpc_id"),
-    TPF_Record_ID("tpf_id"),
-    Zipcode("zipcode"); // (U.S.)
+    alpha_id("alpha_id"), //(), // (ABC123)
+    alpha_dash("alpha-dash"), // (AB1-2)
+    amel_id("amel_id"),
+    custom_id("custom_id"), // (STAN-P001)
+    dash_id("dash-id"), // (12-456) numbers only
+    date_dmy("date_dmy"), // (D-M-Y)
+    date_mdy("date_mdy"), // (M-D-Y)
+    date_my("date_my"), // (M-Y)
+    date_ymd("date_ymd"), // (Y-M-D)
+    date_ym("date_ym"), // (Y-M)
+    datetime_dmy("datetime_dmy"), // (D-M-Y H:M)
+    datetime_mdy("datetime_mdy"), // (M-D-Y H:M)
+    datetime_ymd("datetime_ymd"), // (Y-M-D H:M)
+    datetime_seconds_dmy("datetime_seconds_dmy"), // (D-M-Y H:M:S)
+    datetime_seconds_mdy("datetime_seconds_mdy"), // (M-D-Y H:M:S)
+    datetime_seconds_ymd("datetime_seconds_ymd"), // (Y-M-D H:M:S)
+    directnet_id("directnet_id"),
+    email("email"),
+    integer("integer"),
+    ip_address("ip_address"), // (xxx.xxX.xxX.xxx)
+    lab_value("lab_value"),
+    alpha_only("alpha_only"),
+    mac_address("mac_address"), // (xx:xx:XX:XX:XX:XX)
+    mac_address_list("mac_address_list"), // (csV)
+    mapx_id("mapx_id"), // (MIMCXX-X)
+    mrn_78d("mrn_78d"), // (7-8 digits)
+    mtax_id("mtax_id"), // (SS_Tyy_zzz)
+    number("number"),
+    number_1dp("number_1dp"), // (1 decimal place)
+    number_2dp("number_2dp"), // (2 decimal places)
+    number_3dp("number_3dp"), // (3 decimal places)
+    number_4dp("number_4dp"), // (4 decimal places)
+    phone("phone"), // (North America)
+    api_token("api_token"), // (32char)
+    sunet_id("sunet_id"),
+    time_hh_mm_ss("time_hh_mm_ss"), // (HH:MM:SS)
+    time("time"), // (HH:MM)
+    time_shorthand("time_shorthand"), // (HHMM)
+    tpc_id("tpc_id"),
+    tpf_id("tpf_id"),
+    zipcode("zipcode"); // (U.S.)
 
 
     private final String name;
